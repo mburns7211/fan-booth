@@ -2,6 +2,12 @@ from tkinter import *
 import time
 import re
 import smtplib
+import os
+import hardware_util
+
+if os.environ.get('DISPLAY','') == '':
+    print('no display found. Using :0.0')
+    os.environ.__setitem__('DISPLAY', ':0.0')
 
 sender = input('Sender Email: ')
 
@@ -35,11 +41,14 @@ def update(c):
     elif c == 4:
         print(c)
         main_screen.config(text="Fan On")
+        hardware_util.turn_on_fan()
         c+=1
         main_screen.after(1000, lambda: update(c))
     elif c == 5:
         print(c)
         main_screen.config(text="Shooting")
+        hardware_util.take_video()
+        hardware_util.turn_off_fan()
         c+=1
         main_screen.after(1000, lambda: update(c))
     elif c == 6:
