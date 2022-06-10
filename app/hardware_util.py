@@ -3,12 +3,15 @@ import RPi.GPIO as GPIO
 import time
 
 def take_video():
+    name = "vid_{}".format(str(time.now()))
+
     # Capture 10 seconds of raw video at 640x480 and 150kBps bit rate into a pivideo.h264 file:
-    os.system('raspivid -t 10000 -w 640 -h 480 -fps 25 -b 1200000 -p 0,0,640,480 -o pivideo.h264')
+    os.system(f'raspivid -t 10000 -w 640 -h 480 -fps 25 -b 1200000 -p 0,0,640,480 -o {name}.h264')
     # Wrap the raw video with an MP4 container:
-    os.system('MP4Box -add pivideo.h264 video.mp4')
+
+    os.system(f'MP4Box -add {name}.h264 {name}.mp4')
     # Remove the source raw file, leaving the remaining pivideo.mp4 file to play
-    os.system('rm pivideo.h264')
+    os.system(f'rm {name}.h264')
     # raspivid -o video.h264 -t 10000 todo determine how to edit save path
     print("done")
 def detect_ir_dist():

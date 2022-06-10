@@ -14,7 +14,7 @@ sender = input('Sender Email: ')
 root = Tk()
 
 # Define size of screen
-root.geometry("800x200")
+root.geometry("800x400")
 root.config(bg='black')
 
 count = 1
@@ -49,13 +49,13 @@ def update(c):
         main_screen.config(text="Shooting")
         hardware_util.take_video()
         hardware_util.turn_off_fan()
-        c+=1
+        # todo c+=1 after party
+        c = 7
         main_screen.after(1000, lambda: update(c))
     elif c == 6:
         print(c)
         main_screen.config(text="Enter Your Email")
         btn_shoot.pack_forget() if btn_shoot else None
-        
         
         inputtxt = Text(root, width=20, height = 1)
         inputtxt.pack()
