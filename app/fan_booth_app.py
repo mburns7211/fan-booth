@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from tkinter import *
 import time
 import re
