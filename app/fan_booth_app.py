@@ -9,7 +9,7 @@ if os.environ.get('DISPLAY','') == '':
     print('no display found. Using :0.0')
     os.environ.__setitem__('DISPLAY', ':0.0')
 
-sender = input('Sender Email: ')
+sender = 'mburns7211@gmail.com'
 
 root = Tk()
 
@@ -65,6 +65,7 @@ def update(c):
         # Todo tigger call to email button and submit then call update(7) and remove c+=1
     elif c == 7:
         print(c)
+        btn_shoot.pack_forget() if btn_shoot else None
         btn_email.pack_forget() if btn_email else None
         inputtxt.pack_forget() if inputtxt else None
         btn_home.pack_forget() if btn_home else None
