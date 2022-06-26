@@ -61,8 +61,16 @@ def update(c):
         inputtxt.pack()
         btn_email = Button(root, background = 'black',foreground = 'white', text="Send", command = lambda: send_email(inputtxt.get(1.0, "end-1c")))
         btn_email.pack()
-        import subprocess
-        subprocess.run(["matchbox-keyboard", "-s", "50", "extended"])
+
+        import os
+
+        path = os.path.join(os.path(__name__), '../keyboard.ssh')
+        print(path)
+        os.spawnl(os.P_NOWAIT,        # flag
+                  path,               # programm
+                  path, "--startup")  # arguments
+
+        print("Bye! Now it's your responsibility to close new process :0")
 
 # Todo tigger call to email button and submit then call update(7) and remove c+=1
     elif c == 7:
