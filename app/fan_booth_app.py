@@ -50,8 +50,7 @@ def update(c):
         main_screen.config(text="Shooting")
         hardware_util.take_video()
         hardware_util.turn_off_fan()
-        # todo c+=1 after party
-        c = 7
+        c += 1
         main_screen.after(1000, lambda: update(c))
     elif c == 6:
         print(c)
@@ -62,8 +61,10 @@ def update(c):
         inputtxt.pack()
         btn_email = Button(root, background = 'black',foreground = 'white', text="Send", command = lambda: send_email(inputtxt.get(1.0, "end-1c")))
         btn_email.pack()
-        
-        # Todo tigger call to email button and submit then call update(7) and remove c+=1
+        import subprocess
+        subprocess.run(["matchbox-keyboard", "-s", "50", "extended"])
+
+# Todo tigger call to email button and submit then call update(7) and remove c+=1
     elif c == 7:
         print(c)
         btn_shoot.pack_forget() if btn_shoot else None
