@@ -9,7 +9,33 @@ Design an application that can Display a camera feed the intiate a fan to turn o
 * Tkinter
 * Conda
 * SMTP
+* MAtchbox-KeyBoard
 
-## Status
-**Version 0.0.1-ALPHA 6/1/2022**
-Initialized the flow of the tkinter application.  The program is runnable and takes in client and server emails but the smtp functionality is not yet working.  Created places to add code for camera feed and triggering fan and video
+## Hardware Components
+* Raspberry Pi v4
+* Relay
+* Raspberry Pi Camera
+* Raspberry Pi Touchscreen
+* LEDs
+
+## Setup
+1. Connect components
+    * Connect camera module to raspberry Pi (ribbon cable on camera to camera port on pi)
+    * Connect touchscreen to pi (ribbon cable to port on pi, ground an 5V jumper cables touchscreen to pi)
+    * Connect wires to pins 11 and fround on pi then attach to terminals for relay
+    * Plug LEDs into always on outlet on relay
+    * Connect Fan to sometimes on outlet on relay
+    * Plug relay and raspberry pi power cables into wall power
+2. Connect to wifi by following the following sub steps:
+   a. Click the raspberry logo in the top left
+   b. click accessories then keyboard.  this will launch a keyboard
+   c. In the top right of the main desktop (not the keyboard windo), click the wifi logo and select the correct network.  Using the keyboard, enter the password.
+3. Raspberry pi should boot up. On boot up double click shortcut on desktop labelled 'fan-app'
+4. This should launch the fan booth app. The program is now ready for fan videos.  To turn off simply unplug from power.
+
+## Debug Mode
+1. To enter debug mode, double click the shortcut on desktop labelelled 'debug'.
+2. When the black window pops up, simply copy the last values labelled 'IP address'
+3. Send this to Matt or use it as the IP address in the following command
+```ssh pi@IPADDRESS```
+and using the password raspberry
