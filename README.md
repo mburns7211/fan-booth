@@ -22,7 +22,7 @@ Design an application that can Display a camera feed the intiate a fan to turn o
 1. Connect components
     * Connect camera module to raspberry Pi (ribbon cable on camera to camera port on pi)
     * Connect touchscreen to pi (ribbon cable to port on pi, ground an 5V jumper cables touchscreen to pi)
-    * Connect wires to pins 11 and fround on pi then attach to terminals for relay
+    * Connect wires to pins 11 and any ground pin on pi then attach to terminals for relay
     * Plug LEDs into always on outlet on relay
     * Connect Fan to sometimes on outlet on relay
     * Plug relay and raspberry pi power cables into wall power
