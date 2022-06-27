@@ -27,9 +27,9 @@ Design an application that can Display a camera feed the intiate a fan to turn o
     * Connect Fan to sometimes on outlet on relay
     * Plug relay and raspberry pi power cables into wall power
 2. Connect to wifi by following the following sub steps:
-   a. Click the raspberry logo in the top left
-   b. click accessories then keyboard.  this will launch a keyboard
-   c. In the top right of the main desktop (not the keyboard windo), click the wifi logo and select the correct network.  Using the keyboard, enter the password.
+    1. Click the raspberry logo in the top left
+    2. click accessories then keyboard.  this will launch a keyboard
+    3. In the top right of the main desktop (not the keyboard windo), click the wifi logo and select the correct network.  Using the keyboard, enter the password.
 3. Raspberry pi should boot up. On boot up double click shortcut on desktop labelled 'fan-app'
 4. This should launch the fan booth app. The program is now ready for fan videos.  To turn off simply unplug from power.
 
