@@ -27,7 +27,6 @@ Design an application that can Display a camera feed the intiate a fan to turn o
     * Plug LEDs into always on outlet on relay
     * Connect Fan to sometimes on outlet on relay
     * Plug relay and raspberry pi power cables into wall power
-    * Setup port forwarding followin https://forums.raspberrypi.com/viewtopic.php?t=20826
 2. Raspberry pi should boot up. On boot up double click shortcut on desktop labelled 'fan-app'
 3. Connect to wifi by following the following sub steps:
     1. Click the raspberry logo in the top left
@@ -36,6 +35,7 @@ Design an application that can Display a camera feed the intiate a fan to turn o
 4. This should launch the fan booth app. The program is now ready for fan videos.  To turn off simply unplug from power.
 
 ## Debug Mode
+* Setup port forwarding following https://forums.raspberrypi.com/viewtopic.php?t=20826
 1. To enter debug mode, double click the shortcut on desktop labelelled 'debug'.
 2. When the black window pops up, simply copy the last values labelled 'IP address'
 3. Send this to Matt or use it as the IP address in the following command
