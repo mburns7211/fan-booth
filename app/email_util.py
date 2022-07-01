@@ -3,11 +3,11 @@ import yagmail
 user = 'vidfanbooth@gmail.com'
 app_password = 'jepw jzhj uekr pqsk' # a token for gmail
 
-subject = 'test subject 1'
-content = ['Some message'] # todo add attachment
+subject = 'Fan Booth Video'
+content = ['Here is you video!'] # todo add attachment
 
 
-def send_email(to, attachment):
+def send_email(to, attachment=" Video to be sent."):
     content.append(attachment)
     
     with yagmail.SMTP(user, app_password) as yag:

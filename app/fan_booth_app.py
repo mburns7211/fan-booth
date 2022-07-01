@@ -5,6 +5,7 @@ import re
 import smtplib
 import os
 import hardware_util
+import email_util
 
 if os.environ.get('DISPLAY','') == '':
     print('no display found. Using :0.0')
@@ -62,11 +63,12 @@ def update(c):
         btn_email = Button(root, background = 'black',foreground = 'white', text="Send", command = lambda: send_email(inputtxt.get(1.0, "end-1c")))
         btn_email.pack()
 
-        import subprocess
-        import os
-        path = os.path.dirname(os.path.abspath(__file__))
-        path = os.path.join(path, 'keyboard-ssh.sh')
-        shellscript = subprocess.Popen([path], stdin=subprocess.PIPE)
+        # todo fix
+        # import subprocess
+        # import os
+        # path = os.path.dirname(os.path.abspath(__file__))
+        # path = os.path.join(path, 'keyboard-ssh.sh')
+        # shellscript = subprocess.Popen([path], stdin=subprocess.PIPE)
 
         print("Bye! Now it's your responsibility to close new process :0")
 
@@ -82,10 +84,15 @@ def update(c):
         btn_shoot.pack()
         main_screen.config(text="Fan Video")
     elif c == 8:
+        btn_shoot.pack_forget() if btn_shoot else None
+        btn_email.pack_forget() if btn_email else None
+        inputtxt.pack_forget() if inputtxt else None
+        btn_home.pack_forget() if btn_home else None
         inputtxt.pack_forget() if inputtxt else None
         main_screen.config(text="Email Sent!")
         main_screen.after(5000, lambda: update(7))
     elif c == 9:
+        btn_home.pack_forget() if btn_home else None
         main_screen.config(text="Invalid Email, Try Again")
         btn_home = Button(root, background = 'black',foreground = 'white', text="Go Home", command = lambda: update(7))
         btn_home.pack()
@@ -105,8 +112,8 @@ def send_email(addr):
         """
 
         try:
-           smtpObj = smtplib.SMTP('localhost')
-           smtpObj.sendmail(sender, receivers, message)         
+           # todo add attachment file
+           email_util.send_email(to=addr) 
            print("Successfully sent email")
         except Exception as e:
            print(e)
