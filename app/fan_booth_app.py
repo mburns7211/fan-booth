@@ -4,6 +4,7 @@ import time
 import re
 import smtplib
 import os
+import glob
 import hardware_util
 import email_util
 
@@ -100,6 +101,10 @@ def update(c):
         
     
 def send_email(addr):
+    list_of_files = glob.glob('./*.mp4') # * means all if need specific format then *.csv
+    latest_file = max(list_of_files, key=os.path.getctime)
+    print(latest_file)
+    print(type(latest_file))
     print(addr)
     if isValid(addr):
         receivers = [addr]
@@ -113,8 +118,10 @@ def send_email(addr):
 
         try:
            # todo add attachment file
-           email_util.send_email(to=addr) 
+           email_util.send_email(to=addr, attachment=latest_file) 
            print("Successfully sent email")
+           os.remove(latest_file)
+           print("file deleted")
         except Exception as e:
            print(e)
            print("Error: unable to send email")

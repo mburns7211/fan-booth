@@ -4,7 +4,7 @@ user = 'vidfanbooth@gmail.com'
 app_password = 'jepw jzhj uekr pqsk' # a token for gmail
 
 subject = 'Fan Booth Video'
-content = ['Here is you video!'] # todo add attachment
+content = ['Here is your video!'] # todo add attachment
 
 
 def send_email(to, attachment=" Video to be sent."):
