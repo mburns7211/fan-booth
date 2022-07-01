@@ -20,12 +20,14 @@ Design an application that can Display a camera feed the intiate a fan to turn o
 
 ## Setup
 1. Connect components
+    * Plug keyboard in to I (for setup only, optional for running fan booth)
     * Connect camera module to raspberry Pi (ribbon cable on camera to camera port on pi)
     * Connect touchscreen to pi (ribbon cable to port on pi, ground an 5V jumper cables touchscreen to pi)
     * Connect wires to pins 11 and any ground pin on pi then attach to terminals for relay
     * Plug LEDs into always on outlet on relay
     * Connect Fan to sometimes on outlet on relay
     * Plug relay and raspberry pi power cables into wall power
+    * Setup port forwarding followin https://forums.raspberrypi.com/viewtopic.php?t=20826
 2. Raspberry pi should boot up. On boot up double click shortcut on desktop labelled 'fan-app'
 3. Connect to wifi by following the following sub steps:
     1. Click the raspberry logo in the top left
