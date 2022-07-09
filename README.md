@@ -27,11 +27,13 @@ Design an application that can Display a camera feed the intiate a fan to turn o
     * Plug LEDs into always on outlet on relay
     * Connect Fan to sometimes on outlet on relay
     * Plug relay and raspberry pi power cables into wall power
-2. Raspberry pi should boot up. On boot up double click shortcut on desktop labelled 'fan-app'
+2. Raspberry pi should boot up.
 3. Connect to wifi by following the following sub steps:
     1. Click the raspberry logo in the top left
     2. click accessories then keyboard.  this will launch a keyboard
     3. In the top right of the main desktop (not the keyboard window), click the wifi logo and select the correct network.  Using the keyboard, enter the password.
+4.  Using the touch screen open Desktop->Development->fan-booth->app.  You can then double click fan booth and the Pi IDE will launch.  Hitting the play button will launch the app. 
+(You can also start the app by simply opening the terminal and typing 'cd ~/fan-booth' and then 'python app/fan-booth.py'
 4. This should launch the fan booth app. The program is now ready for fan videos.  To turn off simply unplug from power.
 
 ## Debug Mode
