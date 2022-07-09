@@ -20,7 +20,7 @@ Design an application that can Display a camera feed the intiate a fan to turn o
 
 ## Setup
 1. Connect components
-    * Plug keyboard in to I (for setup only, optional for running fan booth)
+    * Plug keyboard in to PI (for setup only, optional for running fan booth)
     * Connect camera module to raspberry Pi (ribbon cable on camera to camera port on pi)
     * Connect touchscreen to pi (ribbon cable to port on pi, ground an 5V jumper cables touchscreen to pi)
     * Connect wires to pins 11 and any ground pin on pi then attach to terminals for relay
