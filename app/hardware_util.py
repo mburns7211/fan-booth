@@ -1,14 +1,11 @@
 import os
 
 is_pi = True
-
-try:
-    import RPi.GPIO as GPIO
-except Exception as e:
-    is_pi = False
+import RPi.GPIO as GPIO
 import time
 
 def take_video():
+    global is_pi
     if is_pi:
         name = "vid_{}".format(str(time.time()))
 
@@ -27,7 +24,6 @@ def detect_ir_dist():
     pass
 def turn_on_fan():
     if is_pi:
-
         relay_pin = 11
         GPIO.setmode(GPIO.BOARD)
         GPIO.setup(relay_pin, GPIO.OUT)
