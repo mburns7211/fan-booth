@@ -106,6 +106,8 @@ def send_email(addr):
     print(latest_file)
     print(type(latest_file))
     print(addr)
+    # todo remove= 
+    addr = "z@moricmedia.com"
     if isValid(addr):
         receivers = [addr]
 
