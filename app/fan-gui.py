@@ -334,10 +334,12 @@ def letsgo():
         font=("JollyLodger", 120 * -1)
     )
     canvas.update()
+
     hardware_util.turn_on_fan()
     hardware_util.take_video()
     hardware_util.turn_off_fan()
-    canvas.after(1, lambda: alldone())
+    
+    canvas.after(0, lambda: alldone())
 
 
 def one():
