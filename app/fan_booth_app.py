@@ -15,9 +15,9 @@ if os.environ.get('DISPLAY','') == '':
 sender = 'mburns7211@gmail.com'
 
 root = Tk()
-
+# root.attributes('-fullscreen', True)
 # Define size of screen
-root.geometry("800x400")
+root.geometry('800x400')
 root.config(bg='black')
 
 count = 1

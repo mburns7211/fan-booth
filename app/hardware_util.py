@@ -8,9 +8,10 @@ def take_video():
     global is_pi
     if is_pi:
         name = "vid_{}".format(str(time.time()))
-
+        
+        # todo replace with 5000
         # Capture 10 seconds of raw video at 640x480 and 150kBps bit rate into a pivideo.h264 file:
-        os.system(f'raspivid -t 10000 -w 640 -h 480 -fps 25 -b 1200000 -p 0,0,640,480 -o {name}.h264')
+        os.system(f'libcamera-vid -p 1360,768,1360,768 -t 1000 -o {name}.h264')
         # Wrap the raw video with an MP4 container:
 
         os.system(f'MP4Box -add {name}.h264 {name}.mp4')

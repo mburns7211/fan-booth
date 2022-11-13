@@ -1,7 +1,7 @@
 import yagmail
 
 user = 'vidfanbooth@gmail.com'
-app_password = 'jepw jzhj uekr pqsk' # a token for gmail
+app_password = 'kkil capk bwml nrnz' # a token for gmail
 
 subject = 'Fan Booth Video'
 content = ['Here is your video!'] # todo add attachment
