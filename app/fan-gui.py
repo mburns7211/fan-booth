@@ -168,8 +168,8 @@ def home():
     canvas.create_rectangle(
     0.0,
     0.0,
-    max_height,
     max_width,
+    max_height,
     fill="#275199",
     outline="")
 
