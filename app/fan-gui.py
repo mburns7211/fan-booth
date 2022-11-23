@@ -8,6 +8,9 @@ import os
 import glob
 import hardware_util
 import email_util
+import logging
+
+logger = logging.Logger(__name__)
 
 if os.environ.get('DISPLAY','') == '':
     print('no display found. Using :0.0')
@@ -16,6 +19,7 @@ if os.environ.get('DISPLAY','') == '':
 regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
 
 def isValid(email):
+    logger.info(f'Validating email: {email}')
     return re.fullmatch(regex, email)
 
 OUTPUT_PATH = Path(__file__).parent
@@ -28,20 +32,25 @@ def relative_to_assets(path: str) -> Path:
 c = 0
 
 window = Tk()
-window.attributes('-fullscreen',True)
+# TODO revert
+# window.attributes('-fullscreen',True)
 
 window.title("The Branson Blower")
 
-# usng full screen and relx/rely
-# window.geometry("1360x768")
+# using full screen and relx/rely
+window.geometry("1360x768")
 
 window.configure(bg = "#275199")
 
 letsgo_img_file = PhotoImage(
         file=relative_to_assets("letsgo.png"))
 
-max_height = window.winfo_height()
-max_width = window.winfo_width()
+max_height = window.winfo_screenheight()
+max_width = window.winfo_screenwidth()
+
+logger.info(f'Max Width: {max_width}\nMax Height: {max_height}')
+
+
 
 canvas = Canvas(
     window,
@@ -64,6 +73,15 @@ canvas.create_rectangle(
     fill="#275199",
     outline="")
 
+# TODO generate image sizes
+
+def generate_title_font_size():
+    global max_height
+
+    font_ratio = 85 / 760 
+    font_in_pixels = font_ratio * max_height
+    return font_in_pixels * -1
+
 canvas.create_text(
     0.4*max_width,
     0.15*max_height,
@@ -71,7 +89,7 @@ canvas.create_text(
     text="THE\nBRANSON\nBLOWER",
     justify="center",
     fill="#FFFFFF",
-    font=("JollyLodger", 85 * -1)
+    font=("JollyLodger", generate_title_font_size())
 )
 
 button_image_2 = PhotoImage(
