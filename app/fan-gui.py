@@ -277,7 +277,7 @@ def alldone(fail=False):
 
 
     # on enter/return go to submit
-    inputtxt.bind('<Return>', lambda: send_email(inputtxt.get(1.0, "end-1c"), inputtxt, p))
+    inputtxt.bind('<Return>', lambda _: send_email(inputtxt.get(1.0, "end-1c"), inputtxt, p))
 
     # block the following keys to have no action
     inputtxt.bind('<space>', lambda _:'break')
