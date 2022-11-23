@@ -28,39 +28,45 @@ def relative_to_assets(path: str) -> Path:
 c = 0
 
 window = Tk()
+window.attributes('-fullscreen',True)
 
 window.title("The Branson Blower")
 
-window.geometry("1360x768")
-#window.attributes('-fullscreen',True)
+# usng full screen and relx/rely
+# window.geometry("1360x768")
+
 window.configure(bg = "#275199")
 
 letsgo_img_file = PhotoImage(
         file=relative_to_assets("letsgo.png"))
 
+max_height = window.winfo_height()
+max_width = window.winfo_width()
+
 canvas = Canvas(
     window,
     bg = "#275199",
-    height = 768,
-    width = 1360,
+    height = max_height,
+    width = max_width,
     bd = 0,
     highlightthickness = 0,
     relief = "ridge"
     )
 
-canvas.place(x = 0, y = 0)
+canvas.place(relx = 0, rely = 0)
+
 
 canvas.create_rectangle(
     0.0,
     0.0,
-    1360.0,
-    768.0,
+    max_height,
+    max_width,
     fill="#275199",
     outline="")
 
 canvas.create_text(
-    535.0,
-    100.0,
+    0.4*max_width,
+    0.15*max_height,
     anchor="nw",
     text="THE\nBRANSON\nBLOWER",
     justify="center",
@@ -80,32 +86,32 @@ button_image_submit = PhotoImage(
 image_image_1 = PhotoImage(
     file=relative_to_assets("image_1.png"))
 image_1 = canvas.create_image(
-    100.0,
-    100.0,
+    0.07*max_width,
+    0.13*max_height,
     image=image_image_1
 )
 
 image_image_2 = PhotoImage(
     file=relative_to_assets("image_2.png"))
 image_2 = canvas.create_image(
-    1258,
-    96,
+    .925*max_width,
+    .125*max_height,
     image=image_image_2
 )
 
 image_image_3 = PhotoImage(
     file=relative_to_assets("image_3.png"))
 image_3 = canvas.create_image(
-    1300.0,
-    650.0,
+    .955*max_width,
+    .855*max_height,
     image=image_image_3
 )
 
 image_image_4 = PhotoImage(
     file=relative_to_assets("image_4.png"))
 image_4 = canvas.create_image(
-    100.0,
-    675.0,
+    .07*max_width,
+    .88*max_height,
     image=image_image_4
 )
 
@@ -120,8 +126,8 @@ button_1 = Button(
 button_1.place(
     relx=0.4,
     rely=0.8,
-    width=234.0,
-    height=65.0
+    width=.17*max_width,
+    height=.0855*max_height
 )
 
 def home():
