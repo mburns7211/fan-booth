@@ -73,7 +73,7 @@ def generate_title_font_size(factor):
 
     font_ratio = factor / 760 
     font_in_pixels = font_ratio * max_height
-    return font_in_pixels * -1
+    return int(font_in_pixels * -1)
 
 canvas.create_rectangle(
     0.0,
