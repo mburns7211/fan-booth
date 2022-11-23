@@ -65,6 +65,16 @@ canvas = Canvas(
 canvas.place(relx = 0, rely = 0)
 
 
+
+# TODO generate image sizes
+
+def generate_title_font_size(factor):
+    global max_height
+
+    font_ratio = factor / 760 
+    font_in_pixels = font_ratio * max_height
+    return font_in_pixels * -1
+
 canvas.create_rectangle(
     0.0,
     0.0,
@@ -73,14 +83,6 @@ canvas.create_rectangle(
     fill="#275199",
     outline="")
 
-# TODO generate image sizes
-
-def generate_title_font_size():
-    global max_height
-
-    font_ratio = 85 / 760 
-    font_in_pixels = font_ratio * max_height
-    return font_in_pixels * -1
 
 canvas.create_text(
     0.4*max_width,
@@ -89,7 +91,7 @@ canvas.create_text(
     text="THE\nBRANSON\nBLOWER",
     justify="center",
     fill="#FFFFFF",
-    font=("JollyLodger", generate_title_font_size())
+    font=("JollyLodger", generate_title_font_size(85))
 )
 
 button_image_2 = PhotoImage(
@@ -164,21 +166,22 @@ def home():
     canvas.place(x = 0, y = 0)
 
     canvas.create_rectangle(
-        0.0,
-        0.0,
-        1360.0,
-        768.0,
-        fill="#275199",
-        outline="")
+    0.0,
+    0.0,
+    max_height,
+    max_width,
+    fill="#275199",
+    outline="")
+
 
     canvas.create_text(
-        535.0,
-        100.0,
+        0.4*max_width,
+        0.15*max_height,
         anchor="nw",
         text="THE\nBRANSON\nBLOWER",
         justify="center",
         fill="#FFFFFF",
-        font=("JollyLodger", 85 * -1)
+        font=("JollyLodger", generate_title_font_size())
     )
 
     
@@ -186,35 +189,35 @@ def home():
     button_1.place(
         relx=0.4,
         rely=0.8,
-        width=234.0,
-        height=65.0
+        width=.17*max_width,
+        height=.0855*max_height
     )
-
-    image_1 = canvas.create_image(
-        100.0,
-        100.0,
-        image=image_image_1
-    )
+    # TODO potentiall remove if unused and unecessary
+    # image_1 = canvas.create_image(
+    #     100.0,
+    #     100.0,
+    #     image=image_image_1
+    # )
 
    
-    image_2 = canvas.create_image(
-        1258,
-        96,
-        image=image_image_2
-    )
+    # image_2 = canvas.create_image(
+    #     1258,
+    #     96,
+    #     image=image_image_2
+    # )
 
     
-    image_3 = canvas.create_image(
-        1300.0,
-        650.0,
-        image=image_image_3
-    )
+    # image_3 = canvas.create_image(
+    #     1300.0,
+    #     650.0,
+    #     image=image_image_3
+    # )
 
-    image_4 = canvas.create_image(
-        100.0,
-        675.0,
-        image=image_image_4
-    )
+    # image_4 = canvas.create_image(
+    #     100.0,
+    #     675.0,
+    #     image=image_image_4
+    # )
 
 def emailsent():
     global window
@@ -229,25 +232,26 @@ def emailsent():
     canvas.create_rectangle(
         0.0,
         0.0,
-        1360.0,
-        768.0,
+        max_width,
+        max_height,
         fill="#275199",
         outline="")
 
     canvas.create_text(
-        525.0,
-        238.0,
+        .386 * max_width,
+        .313 * max_height,
         anchor="nw",
         text="Email Sent!",
         fill="#FFFFFF",
-        font=("JollyLodger", 105 * -1)
+        font=("JollyLodger", generate_title_font_size(105))
     )
 
-    image_1 = canvas.create_image(
-        680.0,
-        600.0,
-        image=image_image_1
-    )
+    # TODO unused?
+    # image_1 = canvas.create_image(
+    #     680.0,
+    #     600.0,
+    #     image=image_image_1
+    # )
 
 
     canvas.after(3000, lambda: home())
@@ -263,8 +267,8 @@ def alldone(fail=False):
     canvas.create_rectangle(
         0.0,
         0.0,
-        1360.0,
-        768.0,
+        max_width,
+        max_height,
         fill="#275199",
         outline="")
 
@@ -273,29 +277,29 @@ def alldone(fail=False):
     if fail:
         email_tx = "Please enter a valid email"
         canvas.create_text(
-	   350,
-	   192,
+	   .257 * max_width,
+	   .253 * max_height,
 	   anchor="nw",
 	   text=email_tx,
 	   fill="#FFFFFF",
-	   font=("Inter", 50 * -1)
+	   font=("Inter", generate_title_font_size(50))
         )
     else:
         canvas.create_text(
-	   100,
-	   192,
-	   anchor="nw",
-	   text=email_tx,
-	   fill="#FFFFFF",
-	   font=("Inter", 50 * -1)
+            .074 * max_width,
+	        .253 * max_height,
+            anchor="nw",
+            text=email_tx,
+            fill="#FFFFFF",
+            font=("Inter", generate_title_font_size(50))
         )
 
 
     # todo grab text from entry
-    inputtxt = Text(canvas, bg='white', font=("Arial", 30), fg='black', height=1, width=25)
+    inputtxt = Text(canvas, bg='white', font=("Arial", generate_title_font_size(-30)), fg='black', height=1, width=25)
     inputtxt.place(
-        x=400.0,
-        y=275.0)
+        relx=.294,
+        rely=.362)
 
     p = subprocess.Popen(['matchbox-keyboard'])
 
@@ -312,20 +316,20 @@ def alldone(fail=False):
     )
 
     button_1.place(
-        x=550.0,
-        y=335.0,
-        width=234.0,
-        height=65.0
+        x=0.404 * max_width,
+        y=.441 * max_height,
+        width=.172 * max_width,
+        height=.086 * max_height
     )
 
 
     canvas.create_text(
-        505.0,
-        83.0,
+        .371 * max_width,
+        .109 * max_height,
         anchor="nw",
         text="ALL DONE!",
         fill="#FFFFFF",
-        font=("JollyLodger", 105 * -1)
+        font=("JollyLodger", generate_title_font_size(105))
     )
     
 
