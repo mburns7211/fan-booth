@@ -192,32 +192,32 @@ def home():
         width=.17*max_width,
         height=.0855*max_height
     )
-    # TODO potentiall remove if unused and unecessary
-    # image_1 = canvas.create_image(
-    #     100.0,
-    #     100.0,
-    #     image=image_image_1
-    # )
+
+    image_1 = canvas.create_image(
+        100.0,
+        100.0,
+        image=image_image_1
+    )
 
    
-    # image_2 = canvas.create_image(
-    #     1258,
-    #     96,
-    #     image=image_image_2
-    # )
+    image_2 = canvas.create_image(
+        1258,
+        96,
+        image=image_image_2
+    )
 
     
-    # image_3 = canvas.create_image(
-    #     1300.0,
-    #     650.0,
-    #     image=image_image_3
-    # )
+    image_3 = canvas.create_image(
+        1300.0,
+        650.0,
+        image=image_image_3
+    )
 
-    # image_4 = canvas.create_image(
-    #     100.0,
-    #     675.0,
-    #     image=image_image_4
-    # )
+    image_4 = canvas.create_image(
+        100.0,
+        675.0,
+        image=image_image_4
+    )
 
 def emailsent():
     global window
@@ -246,12 +246,11 @@ def emailsent():
         font=("JollyLodger", generate_title_font_size(105))
     )
 
-    # TODO unused?
-    # image_1 = canvas.create_image(
-    #     680.0,
-    #     600.0,
-    #     image=image_image_1
-    # )
+    image_1 = canvas.create_image(
+        680.0,
+        600.0,
+        image=image_image_1
+    )
 
 
     canvas.after(3000, lambda: home())
@@ -350,12 +349,12 @@ def letsgo():
     )
 
     canvas.create_text(
-        590.0,
-        225.0,
+        .434 * max_width,
+        .296 * max_height,
         anchor="nw",
         text="LET’S \nGO!!!",
         fill="#000000",
-        font=("JollyLodger", 120 * -1)
+        font=("JollyLodger", generate_title_font_size(120))
     )
     canvas.update()
 
@@ -374,12 +373,12 @@ def one():
     canvas.delete('all')
     canvas.configure(bg='#EAD943')
     canvas.create_text(
-        640,
-        150,
+        .471 * max_width,
+        .197 * max_height,
         anchor="nw",
         text="1",
         fill="#FFFFFF",
-        font=("JollyLodger", 220 * -1)
+        font=("JollyLodger", generate_title_font_size(220))
     )
     canvas.after(1000, lambda: letsgo())
 
@@ -391,12 +390,12 @@ def two():
     canvas.delete('all')
     canvas.configure(bg='#E9A82B')
     canvas.create_text(
-        640,
-        150,
+        .471 * max_width,
+        .197 * max_height,
         anchor="nw",
         text="2",
         fill="#FFFFFF",
-        font=("JollyLodger", 220 * -1)
+        font=("JollyLodger", generate_title_font_size(220))
     )
 
     canvas.after(1000, lambda: one())
@@ -410,12 +409,12 @@ def three():
     canvas.delete('all')
     canvas.configure(bg='#D34848')
     canvas.create_text(
-        640,
-        150,
+        .471 * max_width,
+        .197 * max_height,
         anchor="nw",
         text="3",
         fill="#FFFFFF",
-        font=("JollyLodger", 220 * -1)
+        font=("JollyLodger", generate_title_font_size(220))
     )
     canvas.after(1000, lambda: two())
 
@@ -427,12 +426,12 @@ def ready():
 
     canvas.delete('all')
     canvas.create_text(
-        500.0,
-        200.0,
+        .368 * max_width,
+        .263 * max_height,
         anchor="nw",
         text="GET READY...",
         fill="#FFFFFF",
-        font=("JollyLodger", 105 * -1)
+        font=("JollyLodger", generate_title_font_size(105))
     )
 
     canvas.after(1500, lambda: three())  
@@ -446,8 +445,8 @@ def send_email(addr, inputtxt, p):
     canvas.create_rectangle(
         0.0,
         0.0,
-        1360.0,
-        768.0,
+        max_width,
+        max_height,
         fill="#275199",
         outline="")
     inputtxt.place_forget()
