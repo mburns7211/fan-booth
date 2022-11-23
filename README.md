@@ -9,7 +9,7 @@ Design an application that can Display a camera feed the intiate a fan to turn o
 * Tkinter
 * Conda
 * SMTP
-* MAtchbox-KeyBoard
+* Matchbox-KeyBoard
 
 ## Hardware Components
 * Raspberry Pi v4
