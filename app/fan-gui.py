@@ -181,7 +181,7 @@ def home():
         text="THE\nBRANSON\nBLOWER",
         justify="center",
         fill="#FFFFFF",
-        font=("JollyLodger", generate_title_font_size())
+        font=("JollyLodger", generate_title_font_size(85))
     )
 
     
